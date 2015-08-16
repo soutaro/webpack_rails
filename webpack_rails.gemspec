@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.version     = WebpackRails::VERSION
   s.authors     = ["Soutaro Matsumoto"]
   s.email       = ["matsumoto@soutaro.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of WebpackRails."
-  s.description = "TODO: Description of WebpackRails."
+  s.homepage    = "https://github.com/soutaro/webpack_rails"
+  s.summary     = "Webpack integration for Rails"
+  s.description = "Webpack integration for Rails"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.2.3"
