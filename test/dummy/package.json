@@ -1,0 +1,12 @@
+{
+  "name": "dummy",
+  "version": "1.0.0",
+  "description": "dummy application for webpack_rails",
+  "author": "Soutaro Matsumoto",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "express": "^4.13.3",
+    "webpack": "^1.11.0",
+    "webpack-dev-middleware": "^1.2.0"
+  }
+}

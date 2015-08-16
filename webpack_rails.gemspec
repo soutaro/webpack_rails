@@ -21,4 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "tilt", "~> 2.0"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "poltergeist"
+  s.add_development_dependency "selenium-webdriver"
 end
