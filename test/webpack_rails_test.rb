@@ -25,6 +25,12 @@ class WebpackRailsTest < ActionDispatch::IntegrationTest
     assert_match "http://getbootstrap.com/javascript", response.body
   end
 
+  test "it compiles coffee script" do
+    get_asset 'coffee_test.js'
+
+    assert_match "This is /module1", response.body
+  end
+
   def get_asset(file)
     get "/assets/#{file}"
   end

@@ -45,6 +45,10 @@ module WebpackRails
       dir + "lock"
     end
 
+    def self.input_dir
+      dir + "input"
+    end
+
     def self.start_server(config)
       webpack_config = generate_config(config)
 
@@ -77,7 +81,7 @@ EOJ
         resolve: {
           root: [assets_path],
         },
-        context: assets_path,
+        context: input_dir,
         entry: { },
         output: {
           path: dir + "output",
@@ -87,8 +91,8 @@ EOJ
 
       config[:entries].each do |file|
         path = Pathname(file)
-        name = path.basename(path.extname)
-        default[:entry][name] = "./" + path.to_s
+        name = path.basename.to_s.split('.').first
+        default[:entry][name] = "./" + Config.module_name(path)
       end
 
       if config.config.delete(:entry)
@@ -101,6 +105,7 @@ EOJ
     def self.ensure_dirs
       dir.mkpath
       (dir + "output").mkpath
+      input_dir.mkpath
     end
 
     def self.update_pid

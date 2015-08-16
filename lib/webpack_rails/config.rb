@@ -26,5 +26,9 @@ module WebpackRails
         value2
       end
     end
+
+    def self.module_name(path)
+      path.basename.to_s.split('.').first + '.js'
+    end
   end
 end

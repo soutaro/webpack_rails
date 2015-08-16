@@ -11,7 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 js_assets = []
-js_assets += %w(require_relative_test.js require_test.js require_library_test.js)
+js_assets += %w(require_relative_test.js require_test.js require_library_test.js coffee_test.js)
 
 Rails.application.config.assets.precompile += js_assets
 Rails.application.config.webpack_rails[:entries] += js_assets

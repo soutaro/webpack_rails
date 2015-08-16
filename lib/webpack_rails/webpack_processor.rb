@@ -26,12 +26,16 @@ module WebpackRails
     end
 
     def self.needs_webpack?(input)
-      module_name = Pathname(input[:filename]).relative_path_from(Rails.root + "app/assets/javascripts").to_s
+      module_name = Config.module_name(Pathname(input[:filename]).basename)
       entries.include?(module_name)
     end
 
     def self.run_webpack(input)
-      module_name = Pathname(input[:filename]).relative_path_from(Rails.root + "app/assets/javascripts").to_s
+      module_name = Config.module_name(Pathname(input[:filename]))
+
+      File.atomic_write(Server.input_dir + module_name) do |io|
+        io.write(input[:data])
+      end
 
       res = Net::HTTP.start('localhost', port) {|http| http.get("/" + module_name) }
       res.body
